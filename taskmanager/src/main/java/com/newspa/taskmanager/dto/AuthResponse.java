@@ -1,6 +1,5 @@
 package com.newspa.taskmanager.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"username", "message", "jwt", "token"})

@@ -14,10 +14,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 @AllArgsConstructor
@@ -51,15 +51,12 @@ public class TaskServiceImpl implements  TaskService{
             throw new ApiException("State Not Found By id" + id, HttpStatus.NOT_FOUND);
         }
 
-        //taskModel.setStatus(Collections.singletonList(State.valueOf(requestDTO.getState().toUpperCase())));
         taskModel.setState(state.get());
         taskModel.setCreatedAt(LocalDateTime.now());
         taskModel.setUserEntity(userEntity);
         System.out.println(taskModel);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(MapperTask.modelToResponseDTO(taskRepository.save(taskModel)));
-
-
     }
 
     @Override
@@ -71,22 +68,13 @@ public class TaskServiceImpl implements  TaskService{
         taskWithRepository.setUpdateAt(LocalDateTime.now());
         taskWithRepository.setTitle(requestDTO.getTitle());
         taskWithRepository.setDescription(requestDTO.getDescription());
-        //List<State> lstStatus = new ArrayList<>();
-        //lstStatus.add(State.valueOf(requestDTO.getState().toUpperCase()));
-         //taskWithRepository.setState(null);
-
         Optional<State>  state = taskRepository.findStateByStatus(requestDTO.getState());
-
         if(!state.isPresent()){
             throw new ApiException("State Not Found By id" + id, HttpStatus.NOT_FOUND);
         }
-
-
          taskWithRepository.setState(state.get());
-         System.out.println(requestDTO.getState());
         return ResponseEntity.status(HttpStatus.OK).body(
                 MapperTask.modelToResponseDTO(taskRepository.save(taskWithRepository)));
-
     }
 
     @Override

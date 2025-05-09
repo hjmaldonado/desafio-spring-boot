@@ -1,6 +1,5 @@
 package com.newspa.taskmanager.Exception;
 
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.apache.coyote.BadRequestException;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
@@ -25,12 +24,6 @@ public class GlobalControllerExceptionHandler {
                 .build(), HttpStatus.BAD_REQUEST);
 
     }
-
-
-
-
-
-
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<?> handleApiException(ApiException ex){

@@ -15,5 +15,4 @@ public interface TaskService {
     ResponseEntity<TaskResponseDTO> updateTask(TaskRequestDTO requestDTO,Long id);
 
     void  deleteTask(Long id);
-
 }

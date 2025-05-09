@@ -2,7 +2,15 @@ package com.newspa.taskmanager.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.newspa.taskmanager.enums.Role;
-import jakarta.persistence.*;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
@@ -28,14 +36,11 @@ public class UserEntity  {
     @OneToMany(mappedBy = "userEntity")
     private List<Task> task;
 
-
     private String password;
-
 
     public boolean isAccountNonExpired() {
         return true;
     }
-
 
     public boolean isAccountNonLocked() {
         return true;
@@ -44,7 +49,6 @@ public class UserEntity  {
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
 
     public boolean isEnabled() {
         return true;

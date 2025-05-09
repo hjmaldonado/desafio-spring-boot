@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.security.core.Authentication;
-
 import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
@@ -48,10 +47,7 @@ public class JwtUtils {
                   .withJWTId(UUID.randomUUID().toString())
                   .withNotBefore(new Date(System.currentTimeMillis()))
                 .sign(algorithm);
-
         return  jwtToken;
-
-
     }
 
     public DecodedJWT validateToken(String token){
@@ -67,8 +63,6 @@ public class JwtUtils {
             throw new JWTVerificationException("Token invalid, not Authorized");
         }
 
-
-
     }
 
     public String extractUsername(DecodedJWT decodedJWT){
@@ -78,7 +72,6 @@ public class JwtUtils {
     public Claim getSpecificClaim(DecodedJWT decodedJWT, String claimName){
         return decodedJWT.getClaim(claimName);
     }
-
 
     public Map<String, Claim> getAllClaims(DecodedJWT decodedJWT){
        return decodedJWT.getClaims();

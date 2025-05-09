@@ -11,7 +11,6 @@ package com.newspa.taskmanager.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,7 +28,6 @@ public class State {
     @Id
     @Column(name="id", updatable = false)
     private Long id;
-
 
     private String status;
 

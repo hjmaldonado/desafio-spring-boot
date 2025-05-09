@@ -1,8 +1,12 @@
 package com.newspa.taskmanager.entity;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 import java.time.LocalDateTime;
 
 
@@ -30,17 +34,10 @@ public class Task {
     @ManyToOne
     @JoinColumn(name= "user_id", updatable = false)
     private UserEntity userEntity;
-    /*
-    @ElementCollection(targetClass = State.class)
-    @JoinTable(name="estado_tareas", joinColumns= @JoinColumn(name="task_id"))
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private List<State> status = new ArrayList<>();*/
 
     @ManyToOne
     @JoinColumn(name= "state_id", updatable = false)
     private State state;
-
 
     @JoinColumn(name= "created_At", nullable = false)
     private LocalDateTime createdAt;
