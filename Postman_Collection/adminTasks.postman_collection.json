@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "1b4998d7-35ad-4971-9e25-880614b1d072",
+		"name": "adminTasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4637051"
+	},
+	"item": [
+		{
+			"name": "List Tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQUNLRU5EIiwic3ViIjoiaHVnbyIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NjgxNzA1NiwiZXhwIjoxNzQ2ODE3MjM2LCJqdGkiOiI2YTBkZmUwNy1mN2FkLTQwNmYtOGM4NC05ZGY3YjFkOWRlNjQiLCJuYmYiOjE3NDY4MTcwNTZ9.G8_f9ZCBi6-fYsUqvHmn84yTQHzyE8od2YNkv2QRG6A"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"title\": \"tarea w\",\n    \"state\": \"OPEN\",\n    \"description\": \"realizar urgente\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks?userId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQUNLRU5EIiwic3ViIjoiaHVnbyIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NjgxNzA1NiwiZXhwIjoxNzQ2ODE3MjM2LCJqdGkiOiI2YTBkZmUwNy1mN2FkLTQwNmYtOGM4NC05ZGY3YjFkOWRlNjQiLCJuYmYiOjE3NDY4MTcwNTZ9.G8_f9ZCBi6-fYsUqvHmn84yTQHzyE8od2YNkv2QRG6A"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"title\": \"tarea w3\",\n    \"state\": \"OPEN\",\n    \"description\": \"realizar urgente e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/tasks/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQUNLRU5EIiwic3ViIjoiaHVnbyIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NjgxNzA1NiwiZXhwIjoxNzQ2ODE3MjM2LCJqdGkiOiI2YTBkZmUwNy1mN2FkLTQwNmYtOGM4NC05ZGY3YjFkOWRlNjQiLCJuYmYiOjE3NDY4MTcwNTZ9.G8_f9ZCBi6-fYsUqvHmn84yTQHzyE8od2YNkv2QRG6A"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/tasks/20"
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"hugo\",\n    \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth/login"
+			},
+			"response": []
+		}
+	]
+}

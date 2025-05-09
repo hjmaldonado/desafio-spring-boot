@@ -1,0 +1,3 @@
+el proyecto se llama taskmanager.
+la coleccion de postman se encuenta en la carpeta: Postman_Collection
+y el manual de pruebas se encuentra en la carpeta: Manual_Test
